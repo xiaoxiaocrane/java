@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>136</y>
+      <w>192</w>
+      <h>344</h>
+    </coordinates>
+    <panel_attributes>entity::Athlete
+--
+-id: long
+-name: java.lang.String
+-gender: java.lang.String
+-level: java.lang.String
+-mark: int
+-rank: int
+-reservations: java.util.List
+--
++Athlete(): ctor
++getRank(): int
++setRank(int): void
++getMark(): int
++setMark(int): void
++getReservations(): java.util.List
++setReservations(java.util.List): void
++getName(): java.lang.String
++setName(java.lang.String): void
++getGender(): java.lang.String
++setGender(java.lang.String): void
++getLevel(): java.lang.String
++setLevel(java.lang.String): void
++getId(): long
++setId(long): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>992</x>
+      <y>976</y>
+      <w>248</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>entity::BadmintonClub
+--
+-olist: java.util.List
+-flist: java.util.List
+--
++BadmintonClub(): ctor
++getFlist(): java.util.List
++setFlist(java.util.List): void
++getOlist(): java.util.List
++setOlist(java.util.List): void
++findFieldByName(java.lang.String): entity.Field
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>232</x>
+      <y>0</y>
+      <w>176</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>entity::Competition
+--
+-id: int
+-name: java.lang.String
+-athletes: java.util.List
+-field: entity.Field
+-is1: int
+-is2: int
+-time: java.lang.String
+--
++getTime(): java.lang.String
++setTime(java.lang.String): void
++isIs1(): int
++setIs1(int): void
++isIs2(): int
++setIs2(int): void
++setId(int): void
++getField(): entity.Field
++setField(entity.Field): void
++getName(): java.lang.String
++setName(java.lang.String): void
++getAthletes(): java.util.List
++setAthletes(java.util.List): void
++getId(): int
++Competition(): ctor
++addAthlete(entity.Athlete): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>144</y>
+      <w>216</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>entity::Field
+--
+-position: java.lang.String
+-reservations: java.util.List
+--
++getReservations(): java.util.List
++setReservations(java.util.List): void
++getPosition(): java.lang.String
++setPosition(java.lang.String): void
++Field(): ctor
++Field(java.lang.String, java.util.List): ctor
++isReserved(java.lang.String): boolean
++reserve(java.lang.String): void
++cancelReservation(java.lang.String): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1024</x>
+      <y>504</y>
+      <w>216</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+dao::BadmintonClubDao
+--
+--
++fieldInit(): java.util.List
++showField(entity.BadmintonClub): void
++orderField(entity.BadmintonClub): void
++cancelField(entity.BadmintonClub): void
++createCompetition(): void
++showCompetition(): void
++deleteCompetition(): void
++showResults(): void
++adminLogin(): void
++showAthlete(): void
++updateAthlete(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>968</y>
+      <w>432</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>dao::BaseDao
+--
++DRIVER: java.lang.String
++URL: java.lang.String
++DBNAME: java.lang.String
++DBPASS: java.lang.String
+--
+~BaseDao(): ctor
++BaseDao(): ctor
++init(): void
++getConn(): java.sql.Connection
++closeAll(java.sql.Connection, java.sql.PreparedStatement, java.sql.ResultSet): void
++executeSQL(java.lang.String, java.lang.Object[]): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>672</y>
+      <w>216</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>impl::BadmintonClubDaoImpl
+--
+-conn: java.sql.Connection
+-pstmt: java.sql.PreparedStatement
+-rs: java.sql.ResultSet
++competitionCount: int
+--
+~BadmintonClubDaoImpl(): ctor
++BadmintonClubDaoImpl(): ctor
++fieldInit(): java.util.List
++showField(entity.BadmintonClub): void
++showCompetition(): void
++showAthlete(): void
++updateAthlete(): void
++createCompetition(): void
++deleteCompetition(): void
++orderField(entity.BadmintonClub): void
++cancelField(entity.BadmintonClub): void
++adminLogin(): void
++showResults(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>272</y>
+      <w>192</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>entity::Reservation
+--
+-timeSlot: java.lang.String
+--
++getTimeSlot(): java.lang.String
++setTimeSlot(java.lang.String): void
+~Reservation(): ctor
+~Reservation(java.lang.String): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>96</x>
+      <y>48</y>
+      <w>152</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>56</y>
+      <w>256</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>232</y>
+      <w>208</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>176</y>
+      <w>80</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>944</x>
+      <y>512</y>
+      <w>96</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;210.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>672</y>
+      <w>160</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>680</y>
+      <w>88</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;370.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
